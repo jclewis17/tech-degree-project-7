@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebApp</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/toggle-switch.css">
 </head>
 <body>
   <header>
@@ -227,7 +228,32 @@
       </form>
     </section>
 
-   
+    <!-- Settings -->
+    <section class="settings">
+      <h3>SETTINGS</h3>
+      
+      <div class="toggle-container">
+        <p>Send Email Notifications</p>
+        <input type="checkbox" name="email" id="email">
+      </div>
+
+      <div class="toggle-container">
+        <p>Set Profile to Public</p>
+        <input type="checkbox" name="public" id="public">
+      </div>
+
+      <select class="form-field" id="timezone">
+        <option disabled selected>Select a Timezone</option>
+        <option>Eastern</option>
+        <option>Central</option>
+        <option>Mountain</option>
+        <option>Pacific</option>
+      </select>
+      <div class="settings-button" >
+        <button class="button-primary" id="save">Save</button>
+        <button class="button-disabled" id="cancel">Cancel</button>
+      </div>
+    </section>
   </main>
 
   <script src="js/app.js"></script>
