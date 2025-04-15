@@ -4,16 +4,37 @@
     box-sizing: border-box;
     }
 
+    /* Bg Color for Nav #4d4c72 */
+
     body{
       background-color: gray;
-    }
-
-    header {
-      background-color: #7477bf;
     }
 
     .svg-temp-styles {
       width: 40px;
       height: 40px;
       color: #fff;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      grid-template-areas:
+      "header"
+      "nav"
+      "main";
+    }
+
+    header {
+      grid-area: header;
+      background-color: #7477bf;
+    }
+
+    nav {
+      grid-area: nav;
+    }
+
+    main {
+      grid-area: main;
     }
