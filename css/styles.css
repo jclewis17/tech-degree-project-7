@@ -10,6 +10,10 @@
       background-color: gray;
     }
 
+    h1 {
+      font-weight: normal;
+    }
+
     .svg-temp-styles {
       width: 40px;
       height: 40px;
@@ -37,4 +41,21 @@
 
     main {
       grid-area: main;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .profile-img {
+      border-radius: 50%;
+      width: 20%;
+      height: 20%;
+
+      margin-top: 5px;
+      margin-bottom: 5px;
+
     }
