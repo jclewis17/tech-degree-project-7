@@ -94,3 +94,37 @@
       padding-left: 40px;
       padding-right: 40px;
     }
+
+
+
+    /* Main */
+    .main {
+      display: grid;
+    }
+
+
+
+
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+        .grid-container {
+          grid-template-columns: 55px 1fr;
+          grid-template-areas:
+          "header header"
+          "nav main";
+        }
+      }
+
+      @media (min-width: 768px) {
+        .main {
+          grid-template-columns: 50%;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .traffic, 
+        .social {
+          grid-column: 1 / span 2;
+        }
+      }
