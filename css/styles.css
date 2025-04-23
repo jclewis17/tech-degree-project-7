@@ -46,16 +46,34 @@
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       color: #fff;
+      padding-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .header-content h1 {
+      margin-right: auto;
+    }
+
+    .header-content > *:not(h1) {
+      margin-left: 1rem;
     }
 
     .profile-img {
       border-radius: 50%;
-      width: 20%;
-      height: 20%;
-
+      width: 10%;
+      height: 10%;
       margin-top: 5px;
       margin-bottom: 5px;
-
     }
+
+    .bell-divider {
+      display: flex;
+      align-items: center;
+      border-right: 1px solid #fff;
+      padding-right: 0.5rem;  
+      margin-right: 0.5rem;
+    }
+    
