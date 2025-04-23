@@ -1,4 +1,5 @@
-    * {
+   /* Base Styles */
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,6 +21,8 @@
       color: #fff;
     }
 
+    /* Turns page display to grid */
+
     .grid-container {
       display: grid;
       grid-template-columns: 100%;
@@ -29,6 +32,8 @@
       "nav"
       "main";
     }
+
+    /* Sets all grid section */
 
     header {
       grid-area: header;
@@ -42,6 +47,8 @@
     main {
       grid-area: main;
     }
+
+    /* Header */
 
     .header-content {
       display: flex;
@@ -76,4 +83,14 @@
       padding-right: 0.5rem;  
       margin-right: 0.5rem;
     }
-    
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: #fff;
+      background-color: #4d4c72;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
