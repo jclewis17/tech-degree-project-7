@@ -102,6 +102,29 @@
       display: grid;
     }
 
+    .main-header {
+      background-color: #f0f0f0;
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+      width: 100%;
+      height: 50px;
+    }
+
+    .main-header .headline {
+      background-color: #fff;
+      border-right: 0.1rem solid #ccc;
+      padding-left: 15px;
+      padding-right: 15px;
+      position: relative;
+      top: 0.1rem;
+    }
+
+    .main-header .headline h2 {
+      margin-top: 8px;
+      line-height: 1;
+    }
+
 
 
 
