@@ -213,6 +213,37 @@
       margin-top: 1rem;
     }
 
+     /* Mobile Users */
+     .mobile {
+      display: grid;
+      grid-template-areas:
+        "mobile-users-header"
+        "mobile-users-chart";
+      grid-template-rows: auto 1fr;
+      background-color: #fff;
+      margin: 1rem;
+    }
+
+    .mobile-users-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-area: mobile-users-header;
+    }
+
+    .mobile-users-header h3 {
+      align-self: flex-start;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Mobile Users Chart */
+    .mobile-users-chart {
+      grid-area: mobile-users-chart;
+      margin-top: 1rem;
+    }
+
     
 
 
