@@ -48,7 +48,9 @@
       grid-area: main;
     }
 
-    /* Header */
+    /************************* 
+    Header 
+    *************************/
 
     .header-content {
       display: flex;
@@ -84,7 +86,10 @@
       margin-right: 0.5rem;
     }
 
-    /* Nav */
+
+    /************************* 
+    Nav
+    *************************/
     nav {
       display: flex;
       align-items: center;
@@ -99,7 +104,10 @@
 
 
 
-    /* Main */
+ 
+    /************************* 
+    Main 
+    *************************/
     .main {
       display: grid;
     }
@@ -244,6 +252,52 @@
       margin-top: 1rem;
     }
 
+    /* Social Stats */
+    .social-container {
+      display: grid;
+      grid-template-areas:
+        "social-stat";
+      grid-template-rows: auto 1fr;
+      background-color: #fff;
+      margin: 1rem;
+    }
+
+    .social-stat {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem;
+    }
+    
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .social-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #7477bf;
+    }
+    
+    .social-text p:first-child {
+      font-size: 1rem;
+      color: #7477bf;
+      margin-bottom: 0.5rem;
+    }
+    
+    .social-text p:last-child {
+      font-size: 1.5rem;
+      color: #666;
+    }
+    
     
 
 
