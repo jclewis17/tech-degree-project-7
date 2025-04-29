@@ -342,7 +342,29 @@
       text-align: center;
       line-height: 1.2;
     }
-    
+
+    /* Recent Activity */
+    .activity {
+      display: grid;
+      grid-template-areas:
+        "new-members-header"
+        "members-container";
+      grid-template-rows: auto 1fr;
+      background-color: #fff;
+      margin: 1rem;
+    }
+
+    .activity-header h3 {
+      align-self: flex-start;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .bold-text {
+      font-weight: bold;
+    }
+
 
 
     
