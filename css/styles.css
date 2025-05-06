@@ -628,3 +628,44 @@
       }
     }
     
+    /* 1024px and wider */
+    @media (min-width: 1024px) {
+      .members, .activity {
+        margin: 1rem;
+      }
+    
+      .members, .activity {
+        width: 90%;
+      }
+    
+      .members-activity-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .activity {
+        border-top: solid 1px #ccc;
+        padding-top: 10px;
+      }
+
+      
+
+      .message, .settings {
+        margin: 1rem;
+      }
+    
+      .message, .settings {
+        width: 90%;
+      }
+    
+      .message-settings-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .settings {
+        border-top: none;
+      }
+    }
