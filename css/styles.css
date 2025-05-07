@@ -136,6 +136,38 @@
       line-height: 1;
     }
 
+    /* Alert Banner */
+    .alert-banner {
+      background-color: #7477bf;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1rem;
+      font-size: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .alert-banner.show {
+      max-height: 500px;
+      opacity: 1;
+    }
+    
+    .alert-banner p {
+      margin: 0;
+    }
+
+    .alert-banner-close {
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+    }
+
     /* Traffic */
     .traffic {
       display: grid;
@@ -648,8 +680,6 @@
         border-top: solid 1px #ccc;
         padding-top: 10px;
       }
-
-      
 
       .message, .settings {
         margin: 1rem;
