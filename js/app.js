@@ -1,5 +1,17 @@
+//Variables
+const trafficCanvas = document.getElementById('traffic-chart');
 const alertContainer = document.getElementById('alert');
+const trafficNavLinks = document.querySelectorAll('.traffic-nav-link');
 
+const trafficDataSets = {
+    Hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
+    Daily: [500, 1000, 750, 1500, 1000, 1250, 900, 1400, 1600, 1200, 1800],
+    Weekly: [300, 600, 500, 800, 700, 900, 650, 950, 1100, 850, 1300],
+    Monthly: [200, 400, 350, 600, 500, 700, 450, 750, 900, 650, 1000]
+};
+
+
+//Time Delay for Alert Banner
 setTimeout(() => {
     alertContainer.innerHTML = `
         <div class="alert-banner" style="opacity: 0; transform: translateY(-100%);">
@@ -25,8 +37,7 @@ setTimeout(() => {
     });
 }, 1500);
 
-const trafficCanvas = document.getElementById('traffic-chart');
-
+//Line Chart Data
 let trafficData = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
     "4-10", "11-17", "18-24", "25-31"],
@@ -43,7 +54,8 @@ let trafficOptions = {
     fill: true,
     aspectRatio: 2.5,
     animation: {
-        duration: 0
+        duration: 500,
+        easing: 'easeOutQuad'
     },
     scales: {
         y: {
@@ -62,3 +74,16 @@ let trafficChart = new Chart(trafficCanvas, {
     data: trafficData,
     options: trafficOptions
     });
+
+
+//Code for changing the line chart when different time length is clicked
+trafficNavLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        const dataset = trafficDataSets[link.textContent];
+
+        if (dataset) {
+            trafficChart.data.datasets[0].data = dataset;
+            trafficChart.update();
+        }
+    });
+});

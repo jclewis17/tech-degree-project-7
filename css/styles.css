@@ -558,6 +558,10 @@
         margin-bottom: 0;
       }
 
+      #traffic-chart {
+        width: 100%;
+      }
+
       .daily-mobile-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -697,5 +701,9 @@
 
       .settings {
         border-top: none;
+      }
+
+      #traffic-chart {
+        width: 100%;
       }
     }
