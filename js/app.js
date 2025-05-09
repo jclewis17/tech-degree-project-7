@@ -50,6 +50,8 @@ let trafficData = {
 };
 
 let trafficOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
     backgroundColor: 'rgba(112, 104, 201, .5)',
     fill: true,
     aspectRatio: 2.5,

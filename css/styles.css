@@ -177,6 +177,7 @@
       grid-template-rows: auto 1fr;
       background-color: #fff;
       margin: 1rem;
+      min-width: 0;
     }
     
 
@@ -221,7 +222,12 @@
     .traffic-chart {
       grid-area: traffic-chart;
       margin-top: 1rem;
-    }
+      width: 100% !important;
+      height: 30vh !important;
+      display: block;
+      max-width: 100%;
+      min-width: 0;
+  }
 
      /* Daily Traffic */
      .daily {
@@ -558,10 +564,6 @@
         margin-bottom: 0;
       }
 
-      #traffic-chart {
-        width: 100%;
-      }
-
       .daily-mobile-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -701,9 +703,5 @@
 
       .settings {
         border-top: none;
-      }
-
-      #traffic-chart {
-        width: 100%;
       }
     }
