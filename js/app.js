@@ -2,6 +2,7 @@
 const trafficCanvas = document.getElementById('traffic-chart');
 const alertContainer = document.getElementById('alert');
 const trafficNavLinks = document.querySelectorAll('.traffic-nav-link');
+const dailyCanvas = document.getElementById('daily-chart');
 
 const trafficDataSets = {
     Hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
@@ -15,7 +16,7 @@ const trafficDataSets = {
 setTimeout(() => {
     alertContainer.innerHTML = `
         <div class="alert-banner" style="opacity: 0; transform: translateY(-100%);">
-            <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
+            <p><strong>Alert:</strong> You have <strong>3</strong> overdue tasks to complete</p>
             <p class="alert-banner-close">x</p>
         </div>
     `;
@@ -88,4 +89,34 @@ trafficNavLinks.forEach(link => {
             trafficChart.update();
         }
     });
+});
+
+//Bar Chart Data
+const dailyData = {
+    labels: ["S", "M", "T", "W", "T", "F", "S"],
+    datasets: [{
+    label: '# of Hits',
+    data: [75, 115, 175, 125, 225, 200, 100],
+    backgroundColor: '#7477BF',
+    borderWidth: 1
+    }]
+};
+
+const dailyOptions = {
+    scales: {
+        y: {
+            beginAtZero: true
+        }
+    },
+    plugins: {
+        legend: {
+            display: false
+        }
+    }
+};
+
+const dailyChart = new Chart(dailyCanvas, {
+    type: 'bar',
+    data: dailyData,
+    options: dailyOptions
 });
