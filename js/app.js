@@ -275,7 +275,7 @@ function loadSavedNotifications() {
 
 loadSavedNotifications();
 
-// Saves the users preferences from toggle switches to localStorage
+//Saves the users preferences from toggle switches to localStorage
 function saveToggleStates() {
   const emailToggle = document.getElementById('emailToggle').checked;
   const profileToggle = document.getElementById('profileToggle').checked;
@@ -291,7 +291,7 @@ function saveToggleStates() {
 }
 
 
-// Load toggle states from localStorage
+//Load toggle states from localStorage
 function loadToggleStates() {
   const saved = JSON.parse(localStorage.getItem('toggleStates'));
   if (!saved) return;
