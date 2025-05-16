@@ -3,6 +3,7 @@ const trafficCanvas = document.getElementById('traffic-chart');
 const alertContainer = document.getElementById('alert');
 const trafficNavLinks = document.querySelectorAll('.traffic-nav-link');
 const dailyCanvas = document.getElementById('daily-chart');
+const mobileCanvas = document.getElementById('mobile-chart');
 
 const trafficDataSets = {
     Hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
@@ -119,4 +120,38 @@ const dailyChart = new Chart(dailyCanvas, {
     type: 'bar',
     data: dailyData,
     options: dailyOptions
+});
+
+//Doughnut Chart Data
+const mobileData = {
+    labels: ["Desktop", "Tablet", "Phones"],
+    datasets: [{
+        label: '# of Users',
+        data: [2000, 550, 500],
+        borderWidth: 0,
+        backgroundColor: [
+            '#7477BF',
+            '#78CF82',
+            '#51B6C8'
+        ]
+    }]
+};
+
+const mobileOptions = {
+    aspectRatio: 1.9,
+    plugins: {
+        legend: {
+            position: 'right',
+            labels: {
+                boxWidth: 20,
+                fontStyle: 'bold'
+            }
+        }
+    }
+};
+
+let mobileChart = new Chart(mobileCanvas, {
+    type: 'doughnut',
+    data: mobileData,
+    options: mobileOptions
 });
