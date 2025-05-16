@@ -42,6 +42,8 @@ closeButtons.forEach(button => {
   button.addEventListener('click', e => {
     e.target.parentElement.remove();
 
+    saveRemainingNotifications();
+
     //green Dot is removed if no notifications remain
     const remaining = document.querySelectorAll('.notification-dropdown .notification');
     if (remaining.length === 0) {
@@ -195,6 +197,7 @@ let mobileChart = new Chart(mobileCanvas, {
     options: mobileOptions
 });
 
+//Send Button for Messages 
 send.addEventListener('click', (e) => {
   e.preventDefault(); //Stops page from reloading
 
@@ -212,6 +215,7 @@ send.addEventListener('click', (e) => {
   }
 });
 
+//Autofill for members in message to field
 userInput.addEventListener("input", () => {
   const input = userInput.value.toLowerCase();
   suggestions.innerHTML = "";
@@ -233,3 +237,83 @@ userInput.addEventListener("input", () => {
     suggestions.appendChild(li);
   });
 });
+
+//Code to remember notifications not closed yet
+function saveRemainingNotifications() {
+  const notifications = Array.from(document.querySelectorAll('.notification-dropdown .notification'))
+    .map(notif => notif.innerHTML);
+  localStorage.setItem('savedNotifications', JSON.stringify(notifications));
+}
+
+function loadSavedNotifications() {
+  const saved = JSON.parse(localStorage.getItem('savedNotifications'));
+  if (saved && saved.length > 0) {
+    const container = document.querySelector('.notification-dropdown');
+    container.innerHTML = '';
+    saved.forEach(html => {
+      const div = document.createElement('div');
+      div.classList.add('notification');
+      div.innerHTML = html;
+      container.appendChild(div);
+    });
+
+    document.querySelectorAll('.close-notification').forEach(button => {
+      button.addEventListener('click', e => {
+        e.target.parentElement.remove();
+        saveRemainingNotifications();
+        const remaining = document.querySelectorAll('.notification-dropdown .notification');
+        if (remaining.length === 0) {
+          notificationDot.classList.remove('show');
+          dropdown.classList.remove('show');
+        }
+      });
+    });
+
+    notificationDot.classList.add('show');
+  }
+}
+
+loadSavedNotifications();
+
+// Saves the users preferences from toggle switches to localStorage
+function saveToggleStates() {
+  const emailToggle = document.getElementById('emailToggle').checked;
+  const profileToggle = document.getElementById('profileToggle').checked;
+  const timezone = document.getElementById('timezone').value;
+
+  const toggleStates = {
+    email: emailToggle,
+    profile: profileToggle,
+    timezone: timezone
+  };
+
+  localStorage.setItem('toggleStates', JSON.stringify(toggleStates));
+}
+
+
+// Load toggle states from localStorage
+function loadToggleStates() {
+  const saved = JSON.parse(localStorage.getItem('toggleStates'));
+  if (!saved) return;
+
+  document.getElementById('emailToggle').checked = saved.email;
+  document.getElementById('profileToggle').checked = saved.profile;
+  document.getElementById('timezone').value = saved.timezone;
+}
+
+document.getElementById('save').addEventListener('click', () => {
+  saveToggleStates();
+});
+
+//resets all toggles to default 
+document.getElementById('cancel').addEventListener('click', () => {
+  document.getElementById('emailToggle').checked = false;
+  document.getElementById('profileToggle').checked = false;
+  document.getElementById('timezone').selectedIndex = 0; 
+  localStorage.removeItem('toggleStates');
+});
+
+
+loadToggleStates();
+
+
