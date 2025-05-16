@@ -7,6 +7,7 @@ const mobileCanvas = document.getElementById('mobile-chart');
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
+const notificationDot = document.querySelector('.notification-dot');
 
 const trafficDataSets = {
     Hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
@@ -14,6 +15,11 @@ const trafficDataSets = {
     Weekly: [300, 600, 500, 800, 700, 900, 650, 950, 1100, 850, 1300],
     Monthly: [200, 400, 350, 600, 500, 700, 450, 750, 900, 650, 1000]
 };
+
+//Time Delay for Notification Dot 
+setTimeout(() => {
+  notificationDot.classList.add('show');
+}, 1500);
 
 
 //Time Delay for Alert Banner

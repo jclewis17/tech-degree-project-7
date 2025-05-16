@@ -114,6 +114,28 @@
       transform-origin: top center;
     }
 
+    .bell-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      display: none;
+      z-index: 2;
+    }
+
+    .notification-dot.show {
+      display: block;
+    }
+
+
 
 
     /************************* 
