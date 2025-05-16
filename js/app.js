@@ -171,8 +171,7 @@ send.addEventListener('click', (e) => {
     alert("Please fill out message field before sending");
   } else {
     alert(`Message successfully sent to: ${user.value}`);
+      user.value = "";
+      message.value = "";
   }
-
-  user.value = "";
-  message.value = "";
 });
