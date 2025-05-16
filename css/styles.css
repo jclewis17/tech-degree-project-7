@@ -135,6 +135,48 @@
       display: block;
     }
 
+    .notification-dropdown {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 220px;
+      z-index: 3;
+      padding: 0.5rem 0;
+    }
+
+    .notification-dropdown.show {
+      display: block;
+    }
+
+    .notification {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      color: #333;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .notification:last-child {
+      border-bottom: none;
+    }
+
+    .close-notification {
+      cursor: pointer;
+      font-weight: bold;
+      color: #999;
+      margin-left: 10px;
+    }
+    .close-notification:hover {
+      color: #333;
+    }
+
 
 
 
@@ -494,6 +536,39 @@
       resize: vertical;
       min-height: 100px;
     }
+
+    .suggestion-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      background: #ccc;
+      position: absolute;
+      width: 80%;
+      z-index: 5;
+    }
+
+    .suggestion-item {
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .suggestion-item:hover {
+      background-color: #7477bf;
+    }
+
+    #suggestions {
+      position: absolute;
+      width: 100%;
+    }
+
+
+    .widget-container {
+      position: relative;
+    }
+
 
     .button-primary {
       background-color: #7477bf;

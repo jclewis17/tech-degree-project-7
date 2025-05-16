@@ -8,6 +8,9 @@ const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
 const notificationDot = document.querySelector('.notification-dot');
+const bellIcon = document.querySelector('.bell-icon');
+const dropdown = document.querySelector('.notification-dropdown');
+const closeButtons = document.querySelectorAll('.close-notification');
 
 const trafficDataSets = {
     Hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
@@ -16,10 +19,37 @@ const trafficDataSets = {
     Monthly: [200, 400, 350, 600, 500, 700, 450, 750, 900, 650, 1000]
 };
 
+const members = ["Victoria Chambers", "Dylan Bird", "Dawn Wood", "Dan Oliver"];
+const userInput = document.getElementById("userField");
+const suggestions = document.getElementById("suggestions");
+
+
 //Time Delay for Notification Dot 
 setTimeout(() => {
   notificationDot.classList.add('show');
 }, 1500);
+
+bellIcon.addEventListener('click', () => {
+  const hasNotifications = dropdown.querySelectorAll('.notification').length > 0;
+  if (hasNotifications) {
+    dropdown.classList.toggle('show');
+  }
+});
+
+
+//allows user to close individiual notifications
+closeButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    e.target.parentElement.remove();
+
+    //green Dot is removed if no notifications remain
+    const remaining = document.querySelectorAll('.notification-dropdown .notification');
+    if (remaining.length === 0) {
+      document.querySelector('.notification-dot').classList.remove('show');
+      dropdown.classList.remove('show');
+    }
+  });
+});
 
 
 //Time Delay for Alert Banner
@@ -180,4 +210,26 @@ send.addEventListener('click', (e) => {
       user.value = "";
       message.value = "";
   }
+});
+
+userInput.addEventListener("input", () => {
+  const input = userInput.value.toLowerCase();
+  suggestions.innerHTML = "";
+
+  if (input === "") return;
+
+  const matches = members.filter(name => name.toLowerCase().includes(input));
+
+  matches.forEach(match => {
+    const li = document.createElement("li");
+    li.textContent = match;
+    li.classList.add("suggestion-item");
+
+    li.addEventListener("click", () => {
+      userInput.value = match;
+      suggestions.innerHTML = "";
+    });
+
+    suggestions.appendChild(li);
+  });
 });
