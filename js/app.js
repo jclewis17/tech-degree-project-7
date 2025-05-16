@@ -4,6 +4,9 @@ const alertContainer = document.getElementById('alert');
 const trafficNavLinks = document.querySelectorAll('.traffic-nav-link');
 const dailyCanvas = document.getElementById('daily-chart');
 const mobileCanvas = document.getElementById('mobile-chart');
+const user = document.getElementById("userField");
+const message = document.getElementById("messageField");
+const send = document.getElementById("send");
 
 const trafficDataSets = {
     Hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
@@ -154,4 +157,22 @@ let mobileChart = new Chart(mobileCanvas, {
     type: 'doughnut',
     data: mobileData,
     options: mobileOptions
+});
+
+send.addEventListener('click', (e) => {
+  e.preventDefault(); //Stops page from reloading
+
+  // ensure user and message fields are filled out
+  if (user.value === "" && message.value === "") {
+    alert("Please fill out user and message fields before sending");
+  } else if (user.value === "") {
+    alert("Please fill out user field before sending");
+  } else if (message.value === "") {
+    alert("Please fill out message field before sending");
+  } else {
+    alert(`Message successfully sent to: ${user.value}`);
+  }
+
+  user.value = "";
+  message.value = "";
 });
