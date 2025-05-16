@@ -238,7 +238,7 @@ userInput.addEventListener("input", () => {
   });
 });
 
-//Code to remember notifications not closed yet
+//Code to remember notifications not closed yet, saves that to local storage
 function saveRemainingNotifications() {
   const notifications = Array.from(document.querySelectorAll('.notification-dropdown .notification'))
     .map(notif => notif.innerHTML);
